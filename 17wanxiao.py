@@ -51,6 +51,7 @@ def get_post_json(jsons):
             dep = data['deptStr']['deptid']
         except:
             logging.info(data['phonenum']+' 信息没写')
+            logs(data['phonenum'])
             return None
         post_dict = {
             "areaStr": data['areaStr'],
@@ -232,7 +233,10 @@ def campus_check_in(username, token, post_dict, id):
         logging.warning('校内打卡请求出错')
         return dict(status=0, errmsg=errmsg)
 
-
+def logs(phone):
+    with open('./log.txt', 'w+') as f:
+      f.write(phone)
+      f.close()
 def check_in(username, password):
     # 登录获取token用于打卡
     token = get_token(username, password)
