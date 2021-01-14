@@ -279,7 +279,7 @@ def check_in(username, password):
         # 第二类健康打卡
         if post_dict == None:
             return False
-        if custom_id_dict['customerId'] == None:
+        if custom_id_dict == None:
             return False
         healthy_check_dict = receive_check_in(token, custom_id_dict['customerId'], post_dict)
         if healthy_check_dict == None:
