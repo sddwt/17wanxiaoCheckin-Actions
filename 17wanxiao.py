@@ -277,6 +277,7 @@ def check_in(username, password):
         # 获取第二类健康打卡参数
         post_dict = get_recall_data(token)
         # 第二类健康打卡
+        print(post_dict)
         healthy_check_dict = receive_check_in(token, custom_id_dict['customerId'], post_dict)
         if healthy_check_dict == None:
             return False
