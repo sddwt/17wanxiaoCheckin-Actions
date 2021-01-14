@@ -47,6 +47,9 @@ def get_post_json(jsons):
             return None
         data = json.loads(res['data'])
         # print(data)
+        if not data['deptStr']:
+            logging.info(data['phonenum']+' 信息没写')
+            return None
         post_dict = {
             "areaStr": data['areaStr'],
             "deptStr": data['deptStr'],
